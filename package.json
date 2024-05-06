@@ -4,7 +4,7 @@
   "description": "Event Keeper is a simple app to keep track of events. It allows you to add, edit, and delete events. It also allows you to add events.",
   "main": "index.js",
   "scripts": {
-    "install": "cd ./client && npm i . && cd ../server && npm i .",
+    "install": "cd client && npm install && cd ../server && npm install",
     "start:server": "node ./server",
     "start:client": "cd ./client && BROWSER=none npm start && cd ..",
     "start:server-client": "start-test start:server 3001/events start:client",
