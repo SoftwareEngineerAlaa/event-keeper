@@ -1,0 +1,252 @@
+.header {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  padding-left: 20px;
+  box-shadow: 1px 2px 5px rgb(239, 239, 239);
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #40b7ad;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title-container {
+  display: flex;
+  width: 1000px;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+/* BODY */
+.body {
+  display: flex;
+  flex-direction: row;
+  min-width: 1000px;
+  width: 90%;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  margin: 0 20px;
+}
+
+/* LEFT */
+.leftBody {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  row-gap: 20px;
+}
+
+.nextEvent {
+  color: white;
+  background-color: #40b7ad;
+  height: 175px;
+  border-radius: 5px;
+}
+
+.nextEvent h4 {
+  font-size: 12px;
+}
+
+.event-title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 13px;
+}
+
+.coming-event {
+  height: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-left: 20px;
+}
+
+.next-event-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.eventList {
+  background-color: rgb(255, 255, 255);
+  min-height: fit-content;
+  max-height: fit-content;
+  width: 100%;
+}
+
+.no-events {
+  color: rgb(38, 38, 38);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* RIGHT */
+/* EVENT FORM */
+.addEventForm {
+  width: 300px;
+  height: 360px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+}
+
+.form-title {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+#form {
+  color: rgb(51, 51, 51);
+  width: 75%;
+}
+
+::placeholder {
+  color: rgb(186, 186, 186);
+}
+
+.addEventForm label {
+  color: gray;
+  min-width: 100%;
+  font-weight: bolder;
+  font-size: 10px;
+}
+
+.addEventForm input {
+  width: 100%;
+  height: 30px;
+  font-weight: bolder;
+  font-size: 10px;
+  padding-left: 5px;
+  margin-top: 2px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  border: 1px solid rgb(220, 220, 220);
+}
+
+.addEventForm button {
+  color: white;
+  font-weight: bolder;
+  font-size: 10px;
+  letter-spacing: 1px;
+  background-color: #40b7ad;
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+  border: transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.addEventForm button:hover {
+  background-color: #66d5cc;
+}
+
+.addEventForm button:active {
+  transform: scale(99%);
+}
+
+.event-bar {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+  background-image: linear-gradient(
+    to right,
+    #40b7ad 0,
+    #40b7ad 100px,
+    #ffffff 100px,
+    #ffffff 100%
+  );
+  min-height: 100px;
+  max-height: fit-content;
+  width: 80%;
+  margin-bottom: 20px;
+  box-shadow: 1px 2px 5px rgb(239, 239, 239);
+  transition: transform 0.2s ease-in-out;
+}
+
+.event-bar:hover {
+  transform: scale(1.01);
+}
+
+.event-bar-info h2 {
+  margin: 10px;
+}
+
+.event-bar-info p {
+  font-size: 10px;
+  font-weight: 500;
+}
+.details {
+  color: rgb(118, 118, 118);
+  margin: 10px;
+}
+
+.date-cyan {
+  color: white;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.date-cyan p {
+  font-size: 30px;
+  font-weight: 600;
+  width: 100px;
+}
+
+.trash {
+  display: flex;
+  align-items: flex-end;
+  margin: 5px;
+}
+.trash-icon {
+  transition: transform 0.3s ease-out;
+}
+.trash-icon:hover {
+  cursor: pointer;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25%,
+  75% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+.event {
+  width: 100%;
+}
