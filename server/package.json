@@ -1,7 +1,7 @@
 {
-  "name": "codeworks-weekly-assessment-6",
+  "name": "event-keeper",
   "version": "1.1.10",
-  "description": "A Codeworks exercise to train students",
+  "description": "Event Keeper is a simple app to keep track of events. It allows you to add, edit, and delete events. It also allows you to add events.",
   "main": "index.js",
   "scripts": {
     "install": "cd ./client && npm i . && cd ../server && npm i .",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codeworks/weekly-assessment-6.git"
+    "url": ""
   },
-  "author": "Codeworks",
+  "author": "Alaa-Tahhan",
   "license": "UNLICENSED",
   "private": true,
   "bugs": {
-    "url": "https://github.com/codeworks/weekly-assessment-6/issues"
+    "url": "https://github.com/SoftwareEngineerAlaa/event-keeper"
   },
-  "homepage": "https://github.com/codeworks/weekly-assessment-6#readme",
+  "homepage": "https://github.com/SoftwareEngineerAlaa/event-keeper",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "cypress": "^7.5.0",
