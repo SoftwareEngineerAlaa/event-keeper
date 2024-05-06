@@ -1,67 +1,45 @@
 const gulp = require("gulp");
-const fs = require("fs");
+const { exec } = require("child_process");
 const del = require("del");
-const $ = require("gulp-load-plugins")();
 
-// Utility to ignore unnecessary files
-// when generating the glob patterns array for gulp.src()
-function addDefSrcIgnore(srcArr) {
-  return srcArr.concat([
-    "!node_modules{,/**}",
-    "!cypress/videos{,/**}",
-    "!cypress/screenshots{,/**}",
-    "!private{,/**}",
-    "!dist{,/**}",
-    "!.git{,/**}",
-    "!**/.DS_Store",
-    "!**/node_modules{,/**}",
-  ]);
+// Clean the output directory
+function clean() {
+  return del(["dist/**", "!dist"]);
 }
 
-// Define a build task
-gulp.task("build", function () {
-  console.log("Building your project...");
-  return gulp.src("src/**/*.js").pipe($.babel()).pipe(gulp.dest("dist"));
-});
+// Build the React application using react-scripts
+function buildClient() {
+  return exec("npm run build --prefix client", (err, stdout, stderr) => {
+    console.log(stdout);
+    console.error(stderr);
+  });
+}
 
-// JavaScript and JSON linter
-function lint() {
+// Copy server files to the dist folder
+function buildServer() {
   return gulp
-    .src(addDefSrcIgnore(["**/*.js", "**/*.json"]), { dot: true })
-    .pipe($.eslint({ dotfiles: true }))
-    .pipe($.eslint.format())
-    .pipe($.eslint.failAfterError());
+    .src(["server/**/*", "!server/**/*.test.js", "!server/node_modules/**"], {
+      nodir: true,
+    })
+    .pipe(gulp.dest("dist/server"));
 }
 
-// Remove solutions from exercises
-function removeSolutions() {
-  del.sync("dist");
-  return gulp
-    .src(addDefSrcIgnore(["**", "!**/REMOVE{,/**}"]), { dot: true })
-    .pipe(
-      $.replace(
-        /^\s*(\/\/|<!--|\/\*)\s*REMOVE-START[\s\S]*?REMOVE-END\s*(\*\/|-->)?\s*$/gm,
-        ""
-      )
-    )
-    .pipe(gulp.dest("dist"));
+// Copy client build to dist folder
+function copyClient() {
+  return gulp.src("client/build/**/*").pipe(gulp.dest("dist/client"));
 }
 
-// Prepare for distribution to students
-function updateConfigForSlave(done) {
-  let npmConfig = require("./package.json");
-  npmConfig = JSON.stringify(npmConfig, null, 2)
-    .replace(/-master/g, "")
-    .replace(/REMOVE/g, ".")
-    .replace(/\/\.\./g, "");
-  fs.writeFileSync("dist/package.json", npmConfig);
+// Define complex tasks
+const build = gulp.series(
+  clean,
+  buildClient,
+  gulp.parallel(buildServer, copyClient)
+);
 
-  done();
-}
-
-// Lint all files
-exports.lint = lint;
-
-// Prepare for distribution to students
-exports.dist = gulp.series(removeSolutions, updateConfigForSlave);
+// Export tasks
+exports.clean = clean;
+exports.buildClient = buildClient;
+exports.buildServer = buildServer;
+exports.copyClient = copyClient;
 exports.build = build;
+exports.default = build;
