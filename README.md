@@ -65,9 +65,15 @@ Ensure you have `npm` and `Node.js` installed before starting.
    cd event-keeper
    ```
 3. **Install dependencies:**
+
    ```bash
+   cd server
+   npm install
+
+   cd ../client
    npm install
    ```
+
 4. **Start the server:**
    ```bash
    cd server
