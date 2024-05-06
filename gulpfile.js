@@ -18,6 +18,12 @@ function addDefSrcIgnore(srcArr) {
   ]);
 }
 
+// Define a build task
+gulp.task("build", function () {
+  console.log("Building your project...");
+  return gulp.src("src/**/*.js").pipe($.babel()).pipe(gulp.dest("dist"));
+});
+
 // JavaScript and JSON linter
 function lint() {
   return gulp
@@ -58,3 +64,4 @@ exports.lint = lint;
 
 // Prepare for distribution to students
 exports.dist = gulp.series(removeSolutions, updateConfigForSlave);
+exports.build = build;
