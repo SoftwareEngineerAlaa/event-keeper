@@ -111,8 +111,7 @@ Contributions are highly appreciated! Please fork the repository and submit a pu
 
 **Alaa Tahhan**
 
-- [Portfolio](https://alaatahhan.netlify.app/)
-- [GitHub](https://github.com/SoftwareEngineerAlaa)
+- [GitHub Portfolio](https://github.com/SoftwareEngineerAlaa)
 - [LinkedIn](https://www.linkedin.com/in/mohammad-ala-tahhan/)
 
 Thank you for exploring Event Keeper!
